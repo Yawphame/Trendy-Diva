@@ -3204,3 +3204,10 @@ margin:auto;
         scroll-behavior: auto !important;
     }
 }
+.categories-section {
+    padding-bottom: 60px;   /* Reduce bottom space */
+}
+
+.categories-grid {
+    margin-bottom: 0;
+}
