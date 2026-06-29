@@ -634,24 +634,7 @@ margin:auto;
 
 }
 
-/* ==========================
-   BUTTONS
-========================== */
 
-.hero-buttons{
-    display:flex;
-    align-items:center;
-    gap:1.2rem;
-
-    flex-wrap:wrap;
-
-    margin-bottom:3rem;
-}
-
-.hero-buttons .btn-primary,
-.hero-buttons .btn-secondary{
-    min-width:190px;
-}
 
 /* ==========================
    TRUST
