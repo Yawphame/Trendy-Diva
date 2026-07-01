@@ -3408,3 +3408,33 @@ margin:auto;
         gap: 2rem;
     }
 }
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.lead {
+    font-size: 1.25rem;
+    color: var(--gray);
+    margin-bottom: 3rem;
+}
+
+.about-story, .about-values {
+    text-align: left;
+    margin-top: 4rem;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.value-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+}
