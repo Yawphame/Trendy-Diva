@@ -126,22 +126,23 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    /* Wishlist Button */
-    const wishlistButtons = document.querySelectorAll(".wishlist-btn");
-    wishlistButtons.forEach(button => {
-        button.addEventListener("click", (e) => {
-            e.preventDefault();
-            const icon = button.querySelector("i");
-            button.classList.toggle("active");
-            if (button.classList.contains("active")) {
-                icon.classList.remove("fa-regular");
-                icon.classList.add("fa-solid");
-            } else {
-                icon.classList.remove("fa-solid");
-                icon.classList.add("fa-regular");
-            }
-        });
+   /* Wishlist Button */
+const wishlistButtons = document.querySelectorAll(".wishlist-btn");
+wishlistButtons.forEach(button => {
+    button.addEventListener("click", (e) => {
+        e.preventDefault();
+        const icon = button.querySelector("i");
+        button.classList.toggle("active");
+        
+        if (button.classList.contains("active")) {
+            icon.classList.remove("fa-regular");
+            icon.classList.add("fa-solid");
+        } else {
+            icon.classList.remove("fa-solid");
+            icon.classList.add("fa-regular");
+        }
     });
+});
 
     /* Cart Counter */
     const cartCount = document.querySelector(".cart-count");
