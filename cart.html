@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - Trendy Diva Wears</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">TRENDY DIVA WEARS</a>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="collection.html">Collections</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="#" class="icon-btn search-trigger"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <a href="#" class="icon-btn"><i class="fa-regular fa-heart"></i></a>
+                <a href="#" class="icon-btn"><i class="fa-regular fa-user"></i></a>
+                <a href="cart.html" class="icon-btn cart-icon">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-count">3</span>
+                </a>
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section cart-section">
+        <div class="container">
+            <h1 class="section-title">Your Shopping Cart</h1>
+
+            <div class="cart-content">
+                
+                <!-- Cart Items -->
+                <div class="cart-items" id="cartItems">
+                    <!-- Items will be populated by JS -->
+                </div>
+
+                <!-- Cart Summary -->
+                <div class="cart-summary">
+                    <h2>Order Summary</h2>
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="subtotal">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span class="free">FREE</span>
+                    </div>
+                    <div class="summary-row total">
+                        <strong>Total</strong>
+                        <strong id="total">$0.00</strong>
+                    </div>
+
+                    <a href="checkout.html" class="btn-primary checkout-btn">Proceed to Checkout</a>
+                    
+                    <p class="secure-note">
+                        <i class="fa-solid fa-lock"></i> 
+                        Secure checkout powered by Stripe
+                    </p>
+                </div>
+            </div>
+
+            <div class="cart-empty" id="cartEmpty" style="display: none;">
+                <i class="fa-solid fa-bag-shopping" style="font-size: 4rem; opacity: 0.2; margin-bottom: 1rem;"></i>
+                <h2>Your cart is empty</h2>
+                <p>Looks like you haven't added anything yet.</p>
+                <a href="shop.html" class="btn-primary">Start Shopping</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>TRENDY DIVA WEARS</h3>
+                    <p>Timeless fashion for the modern woman.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="shop.html">Shop</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Trendy Diva Wears. All Rights Reserved. | Houston, Texas</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Sample Cart Data (You can replace with real localStorage later)
+        let cart = [
+            {
+                id: 1,
+                name: "Serenity Floral Maxi Dress",
+                price: 128,
+                quantity: 1,
+                image: "https://source.unsplash.com/random/600x800/?maxidress"
+            },
+            {
+                id: 2,
+                name: "Cashmere Silk Blend Top",
+                price: 89,
+                quantity: 2,
+                image: "https://source.unsplash.com/random/600x800/?fashiontop"
+            }
+        ];
+
+        function renderCart() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            const cartEmpty = document.getElementById('cartEmpty');
+            
+            if (cart.length === 0) {
+                cartEmpty.style.display = 'block';
+                return;
+            }
+
+            let html = '';
+            let subtotal = 0;
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+
+                html += `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.name}">
+                        <div class="cart-item-info">
+                            <h4>${item.name}</h4>
+                            <p>$${item.price}</p>
+                            <div class="quantity-control">
+                                <button onclick="changeQuantity(${index}, -1)">−</button>
+                                <span>${item.quantity}</span>
+                                <button onclick="changeQuantity(${index}, 1)">+</button>
+                            </div>
+                        </div>
+                        <div class="cart-item-total">
+                            <strong>$${itemTotal}</strong>
+                            <button onclick="removeFromCart(${index})" class="remove-btn">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            cartItemsContainer.innerHTML = html;
+            document.getElementById('subtotal').textContent = `$${subtotal}`;
+            document.getElementById('total').textContent = `$${subtotal}`;
+        }
+
+        function changeQuantity(index, change) {
+            cart[index].quantity += change;
+            if (cart[index].quantity < 1) cart[index].quantity = 1;
+            renderCart();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            renderCart();
+        }
+
+        // Initialize cart on page load
+        document.addEventListener('DOMContentLoaded', renderCart);
+    </script>
+</body>
+</html>
