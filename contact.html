@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Trendy Diva Wears - Premium Women's Fashion">
     <title>Contact Us - Trendy Diva Wears</title>
+    
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -13,6 +15,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">TRENDY DIVA WEARS</a>
+            
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="shop.html">Shop</a></li>
@@ -20,6 +23,7 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+
             <div class="nav-actions">
                 <a href="#" class="icon-btn search-trigger"><i class="fa-solid fa-magnifying-glass"></i></a>
                 <a href="#" class="icon-btn"><i class="fa-regular fa-heart"></i></a>
@@ -29,31 +33,83 @@
                     <span class="cart-count">0</span>
                 </a>
             </div>
+
             <div class="hamburger" id="hamburger">
                 <span></span><span></span><span></span>
             </div>
         </div>
     </nav>
 
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>Get In Touch</h1>
+            <p class="lead">We’d love to hear from you. Reach out to our team.</p>
+        </div>
+    </section>
+
     <section class="section">
         <div class="container">
-            <div class="contact-content">
-                <h1>Get In Touch</h1>
-                <p>We'd love to hear from you. Send us a message and we'll respond within 24 hours.</p>
+            <div class="contact-grid">
 
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <h3>Visit Our Store</h3>
-                        <p>Accra, Greater Accra Region<br>Ghana</p>
-                        <p><strong>Phone:</strong> +233 55 123 4567</p>
-                        <p><strong>Email:</strong> hello@trendydiwears.com</p>
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h2>Visit Our Studio</h2>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <strong>Trendy Diva Wears</strong><br>
+                            123 Luxury Lane, Suite 500<br>
+                            Houston, TX 77002<br>
+                            United States
+                        </div>
                     </div>
 
-                    <form class="contact-form">
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Your Email" required>
-                        <input type="text" placeholder="Subject" required>
-                        <textarea placeholder="Your Message" rows="8" required></textarea>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <strong>Phone</strong><br>
+                            <a href="https://wa.me/18323327482" target="_blank" class="whatsapp-link">
+                                +1 (832) 332-7482
+                            </a>
+                            <span class="whatsapp-badge">WhatsApp Only</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <strong>Email</strong><br>
+                            <a href="mailto:hello@trenddivawears.com">hello@trenddivawears.com</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <div>
+                            <strong>Business Hours</strong><br>
+                            Monday – Friday: 9:00 AM – 6:00 PM CST<br>
+                            Saturday: 10:00 AM – 4:00 PM CST
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h2>Send Us a Message</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Phone Number">
+                        </div>
+                        <div class="form-group">
+                            <textarea rows="6" placeholder="How can we help you today?" required></textarea>
+                        </div>
                         <button type="submit" class="btn-primary">Send Message</button>
                     </form>
                 </div>
@@ -75,32 +131,38 @@
                     <a href="shop.html">Dresses</a>
                     <a href="shop.html">Tops</a>
                     <a href="shop.html">Bottoms</a>
-                    <a href="shop.html">Sets</a>
-                    <a href="shop.html">Accessories</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Customer Care</h4>
-                    <a href="contact.html">Contact Us</a>
-                    <a href="#">Shipping Policy</a>
-                    <a href="#">Returns &amp; Exchanges</a>
                 </div>
                 <div class="footer-col">
                     <h4>Company</h4>
                     <a href="about.html">About Us</a>
-                    <a href="#">Blog</a>
+                    <a href="contact.html">Contact</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <div class="payment-icons">
-                    <i class="fa-brands fa-cc-visa"></i>
-                    <i class="fa-brands fa-cc-mastercard"></i>
-                    <i class="fa-brands fa-cc-paypal"></i>
-                </div>
-                <p>&copy; 2026 Trendy Diva Wears. All Rights Reserved.</p>
+                <p>&copy; 2026 Trendy Diva Wears. All Rights Reserved. | Houston, Texas</p>
             </div>
         </div>
     </footer>
 
     <script src="js/script.js"></script>
+
+    <script>
+        // WhatsApp Click Tracking (Optional)
+        document.querySelectorAll('.whatsapp-link').forEach(link => {
+            link.addEventListener('click', () => {
+                console.log('WhatsApp opened for business inquiry');
+            });
+        });
+
+        // Simple form submission alert
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert("Thank you! Your message has been received. We'll reply within 24 hours.");
+                this.reset();
+            });
+        }
+    </script>
 </body>
 </html>
